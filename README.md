@@ -38,8 +38,6 @@ To get started with macOSComplianceEnforcer-Azure, you'll need to set up a few t
 
 - **Zsh script**: A script will need to be deployed to all endpoints using Intune. This script will check the status of an application (e.g., MS Defender) and call an Azure Function if the application is not running or installed.
 
-After setting up the above, you can clone this repository to your local machine by running:
-
 ## Usage
 
 Instructions on how to use the tool. NOTE: WORK IN PROGRESS
