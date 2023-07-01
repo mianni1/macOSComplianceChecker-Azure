@@ -1,0 +1,5 @@
+resource_group_name      = "macOSComplianceEnforcer"
+location                 = "Australia East"
+storage_account_name     = "macoscompliancestorage"
+app_service_plan_name    = "macoscomplianceplan"
+function_app_name        = "macoscomplianceapp"
