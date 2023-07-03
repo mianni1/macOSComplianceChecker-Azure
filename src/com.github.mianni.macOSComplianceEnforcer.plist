@@ -3,10 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.macOSComplianceChecker</string>
+	<string>com.github.mianni.macOSComplianceEnforcer</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/main.zsh</string>
+		<!-- Edit the string below with the path to the pathing of the .zsh script -->
+		<string>/usr/local/bin/main.zsh</string> 
 	</array>
 	<key>StartInterval</key>
 	<integer>900</integer>
