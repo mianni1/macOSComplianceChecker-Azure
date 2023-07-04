@@ -15,13 +15,20 @@ running_function_key="your-azure-function-key"
 enforcement_function_url="https://your-azure-function-url.azurewebsites.net/api/enforcmentActionFunctionName"
 enforcement_function_key="your-azure-function-key"
 
+# Get the device name from the macOS system
+device_name=$(scutil --get ComputerName 2>/dev/null)
+
+if [ -z "$device_name" ]; then
+    device_name="Unknown Device"
+fi
+
 # Check if Microsoft Defender is installed
 defenderInstalled=$(ls /Applications/ | grep -x "Microsoft Defender.app")
 
 if [ -z "$defenderInstalled" ]; then
     # Microsoft Defender is not installed
     # Call Azure Function to trigger enforcement action on the Endpoint
-    curl -X POST "$enforcement_function_url" -H "x-functions-key:$enforcement_function_key"
+    curl -X POST "$enforcement_function_url?device_name=$device_name" -H "x-functions-key:$enforcement_function_key"
 else
     # Microsoft Defender is installed
     # Check if Microsoft Defender is running
@@ -33,6 +40,6 @@ else
         # Start Microsoft Defender
         open -a "Microsoft Defender"
         # Call Azure Function
-        curl -X POST "$running_function_url" -H "x-functions-key:$running_function_key"
+        curl -X POST "$running_function_url?device_name=$device_name" -H "x-functions-key:$running_function_key"
     fi
 fi
