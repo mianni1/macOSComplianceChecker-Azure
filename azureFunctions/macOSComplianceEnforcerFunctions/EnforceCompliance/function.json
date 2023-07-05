@@ -1,0 +1,19 @@
+{
+    "scriptFile": "__init__.py",
+    "bindings": [
+      {
+        "name": "httpRequest",
+        "type": "httpTrigger",
+        "direction": "in",
+        "methods": [ "get", "post" ],
+        "authLevel": "function",
+        "route": "enforceCompliance/{deviceName}"
+      },
+      {
+        "name": "httpResponse",
+        "type": "http",
+        "direction": "out"
+      }
+    ]
+  }
+  
